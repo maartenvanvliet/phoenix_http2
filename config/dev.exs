@@ -7,11 +7,12 @@ use Mix.Config
 # watchers to your application. For example, we use it
 # with brunch.io to recompile .js and .css sources.
 config :http2_test, Http2TestWeb.Endpoint,
-  http: [port: 4000],
   debug_errors: true,
+  handler: Phoenix.Endpoint.Cowboy2Handler,
   code_reloader: true,
   check_origin: false,
-  watchers: []
+  watchers: [],
+  https: [port: 4000, keyfile: "priv/server.key", certfile: "priv/server.pem"]
 
 # ## SSL Support
 #
